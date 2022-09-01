@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,12 +59,19 @@ namespace PrimeraInterfaz
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Haz echo clic en el botón");
+            Debug.WriteLine("Haz echo clic en el botón");
         }
 
+        /*
         private void Panel_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Haz echo clic en el panel");
+            Debug.WriteLine("Haz echo clic en el panel");
+        }
+        */
+
+        private void Panel_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Debug.WriteLine("Haz echo clic en el panel");
         }
     }
 }

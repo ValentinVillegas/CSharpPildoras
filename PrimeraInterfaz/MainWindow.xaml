@@ -18,7 +18,7 @@
                 </WrapPanel>
             </Button.Content>
         </Button>-->
-        <StackPanel Name="Panel" ButtonBase.Click="Panel_Click">
+        <StackPanel Name="Panel" PreviewMouseLeftButtonDown="Panel_PreviewMouseLeftButtonDown">
             <Button Content="Dale 1" Margin="15" Width="150" HorizontalAlignment="Left"></Button>
             <Button Content="Dale 2" Margin="15" Width="150" HorizontalAlignment="Center" Click="Button_Click"></Button>
             <Button Content="Dale 3" Margin="15" Width="150" HorizontalAlignment="Right"></Button>
