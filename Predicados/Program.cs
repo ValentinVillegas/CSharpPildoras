@@ -6,23 +6,24 @@ namespace Predicados
     public class Program
     {
         static void Main(string[] args)
-        {
-            List<int> listaNumeros = new List<int>();
-            listaNumeros.AddRange(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-
-            Predicate<int> elDelegado = new Predicate<int>(DamePares);
-
-            List<int> numPares = listaNumeros.FindAll(elDelegado);
-
-            foreach(int num in numPares)
+        { 
+            List<Persona> gente = new List<Persona>()
             {
-                Console.WriteLine(num);
-            }
+                new Persona("Juan", 18),
+                new Persona("Maria", 28),
+                new Persona("Ana", 37),
+            };
+
+            Predicate<Persona> elPredicado = new Predicate<Persona>(ExisteJuan);
+            bool existe = gente.Exists(elPredicado);
+
+            Console.WriteLine(existe ? "Si hay almenos una persona que se llame juan" : "No hay almenos una persona que se llame juan");
+
         }
 
-        static bool DamePares(int num)
+        static bool ExisteJuan(Persona p)
         {
-            if (num % 2 == 0)
+            if(p.Nombre == "Juan")
             {
                 return true;
             }
@@ -31,5 +32,19 @@ namespace Predicados
                 return false;
             }
         }
+    }
+
+    public class Persona
+    {
+        public string Nombre { get; set; }
+
+        public int Edad { get; set; }
+
+        public Persona(string nombre, int edad)
+        {
+            Nombre = nombre;
+            Edad = edad;
+        }
+
     }
 }
